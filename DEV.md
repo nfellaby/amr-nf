@@ -33,7 +33,10 @@ Run test, but don't repeat steps that have not changed:
 `nextflow run main.nf -profile test,docker -process.echo -resume`
 
 Running from GitHub directly (requires permissions)
-`nextflow run ukhsa-collaboration/mscape-amr-nf -r dev -profile test,docker -resume`
+`nextflow run nfellaby/amr-nf -r dev -profile test,docker -resume`
+
+Note: You will want to pull the latest version of the repo
+`nextflow pull nfellaby/amr-nf`
 
 ## Viewing Work Directory
 Can be found here:
