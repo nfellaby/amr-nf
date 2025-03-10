@@ -25,7 +25,7 @@ process RETRIEVE_TAXON {
     container 'community.wave.seqera.io/library/pip_argparse_pandas_pathlib:2f69bdc5b6cf9eae'
 
     input:
-    tuple val(climb_id) path(kraken_report), path(read_taxid_assignment)
+    tuple val(climb_id), path(kraken_report), path(read_taxid_assignment)
 
     script:
     """
