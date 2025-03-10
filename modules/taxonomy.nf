@@ -20,7 +20,7 @@ process READ_EXTRACT{
     """
 }
 
-process RETREIVE_TAXON {
+process RETRIEVE_TAXON {
     tag "${climb_id}"
     container 'community.wave.seqera.io/library/pip_argparse_pandas_pathlib:2f69bdc5b6cf9eae'
 
