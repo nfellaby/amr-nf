@@ -28,12 +28,12 @@ Create python script to run Abricate (`mscape-amr-nf/abricate.py`)
 
 ## Testing Nextflow
 Running tests:   
-`nextflow run main.nf -profile test,docker -process.echo`
+`nextflow run main.nf -profile docker --samplesheet /shared/team/amr/nextflow/test_data/test-sample-sheet.csv -process.echo`
 Run test, but don't repeat steps that have not changed:
-`nextflow run main.nf -profile test,docker -process.echo -resume`
+`nextflow run main.nf -profile docker -resume --samplesheet /shared/team/amr/nextflow/test_data/test-sample-sheet.csv -process.echo`
 
 Running from GitHub directly (requires permissions)
-`nextflow run nfellaby/amr-nf -r dev -profile test,docker -resume`
+`nextflow run nfellaby/amr-nf -r dev -profile test,docker -resume --samplesheet /shared/team/amr/nextflow/test_data/test-sample-sheet.csv`
 
 Note: You will want to pull the latest version of the repo
 `nextflow pull nfellaby/amr-nf`
