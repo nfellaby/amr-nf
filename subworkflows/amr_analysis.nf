@@ -39,7 +39,7 @@ workflow AMR_ANALYSIS {
     // 3. Extract species IDs for each READ assigned AMR
     READ_EXTRACT(amr_status.annotated)
     READ_EXTRACT.out.view()
-    RETRIEVE_TAXON{READ_EXTRACT.out}
+    RETRIEVE_TAXON(READ_EXTRACT.out)
     // 4. Run Scagaire
     // SCAGAIRE(ABRICATE.out.abricate)
 }
