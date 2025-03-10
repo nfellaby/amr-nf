@@ -1,4 +1,4 @@
-#!/user/bin/env
+#!/user/bin/env python
 
 import pandas as pd
 import json
