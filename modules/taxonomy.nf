@@ -32,7 +32,6 @@ process RETRIEVE_TAXON {
     echo ${climb_id}
     echo ${kraken_report}
     echo ${read_taxid_assignment}
+    retrieve_taxon.py -t ${read_taxid_assignment} -j ${kraken_report} -o reads_kraken_info.tsv
     """
-//     retrieve_taxon.py -t ${read_taxid_assignment} -j ${kraken_report} -o reads_kraken_info.tsv
-
 }
