@@ -10,7 +10,7 @@ process READ_EXTRACT{
     tuple val(climb_id), path(kraken_assignments), path(kraken_report),  path(abricate_out)
 
     output:
-    tuple val(climb_id) path(kraken_report), path(read_taxid_assignment.tsv)
+    tuple val(climb_id), path(kraken_report), path(read_taxid_assignment.tsv)
     
     script:
     """
@@ -31,5 +31,4 @@ process RETRIEVE_TAXON {
     """
     retrieve_taxon.py -t ${read_taxid_assignment} -j ${kraken_report} -o reads_kraken_info.tsv
     """
-
 }
