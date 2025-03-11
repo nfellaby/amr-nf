@@ -3,7 +3,7 @@ nextflow.enable.dsl=2
 
 process READ_ANALYSIS{
     tag "${climb_id}"
-    container 'community.wave.seqera.io/library/argparse_python_pip_pandas:87346e05c042ccdc'
+    container 'community.wave.seqera.io/library/pip_pandas:40d2e76c16c136f0'
 
     // 1. Extract Read IDs from Abricate output file
     input:
