@@ -10,7 +10,7 @@ process READ_ANALYSIS{
     tuple val(climb_id), path(kraken_assignments), path(kraken_report),  path(abricate_out)
 
     output:
-    tuple val(climb_id), path(kraken_report), path("reads_kraken_info.tsv")
+    tuple val(climb_id), path(kraken_report)
     
     script:
     """
@@ -21,5 +21,6 @@ process READ_ANALYSIS{
     """
 }
 
+// , path("reads_kraken_info.tsv")
 
 // retrieve_taxon.py -t read_taxid_assignment.tsv -j ${kraken_report} -o reads_kraken_info.tsv
