@@ -10,13 +10,13 @@ process READ_ANALYSIS{
     tuple val(climb_id), path(kraken_assignments), path(kraken_report),  path(abricate_out)
 
     output:
-    tuple val(climb_id), path(kraken_report), path("read_taxid_assignment.tsv")
+    tuple val(climb_id), path(kraken_report), path("reads_kraken_info.tsv")
     
     script:
     """
     echo $climb_id
     tail -n +2 ${abricate_out} | cut -f2 | sort | uniq > unique_amr_reads.txt
     while read i; do grep -P "\$i\t" ${kraken_assignments} | cut -f 2-3 >>read_taxid_assignment.tsv; done< unique_amr_reads.txt
-        retrieve_taxon.py -t ${read_taxid_assignment} -j ${kraken_report} -o reads_kraken_info.tsv
+        retrieve_taxon.py -t read_taxid_assignment.tsv -j ${kraken_report} -o reads_kraken_info.tsv
     """
 }
