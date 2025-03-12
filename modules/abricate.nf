@@ -10,10 +10,10 @@ process RUN_ABRICATE{
     tuple val(climb_id), path(kraken_assignments), path(kraken_report),  path(fastq1)
 
     output:
-    tuple  val(climb_id), path(kraken_assignments), path(kraken_report),  path('abricate_out.txt'), emit: abricate_results
+    tuple  val(climb_id), path(kraken_assignments), path(kraken_report),  path('abricate_out.tsv'), emit: abricate_results
 
     script:
     """
-    abricate --quiet --mincov 90 --db card '${fastq1}' > 'abricate_out.txt'
+    abricate --quiet --mincov 90 --db card '${fastq1}' > 'abricate_out.tsv'
     """
 }
