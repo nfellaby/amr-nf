@@ -2,25 +2,28 @@
 
 nextflow.enable.dsl=2
 
+param.species="Enterobacter cloacae","Escherichia coli","Haemophilus influenzae","Klebsiella oxytoca","Klebsiella pneumoniae","Moraxella catarrhalis","Pseudomonas aeruginosa","Serratia marcescens","Staphylococcus aureus","Streptococcus pneumoniae","Streptococcus pyogenes"
+
 process SCAGAIRE{
-    // tag "${climb_id}"
+    tag "${climb_id}"
     // container 'community.wave.seqera.io/library/scagaire:0.0.4--d340715dde589279'
+    publishDir "${params.outdir}/scagaire", mode: 'copy'
 
-    // input:
-    // tuple val(climb_id), path(abricate)
+    input:
+    tuple val(climb_id), path(kraken_assignments), path(kraken_report),  path(abricate_out), val(species)
 
-    // Read in Abricate results
-    // What taxa was assigned to a given read?
+    output:
+    path "\$prefix_scagaire_summary.tsv"
+
 
     script:
     """
-    echo test
+    prefix=$(echo "${species}" | sed 's/ /_/g')
+    scagaire \
+        -n card \
+        -t abricate \
+        ${species} \
+        ${abricate} \
+        -s \$prefix_scagaire_summary.tsv -o \$prefix_scagaire_summary.tsv
     """
-    // t=$(cat {input.top_hit} | paste -sd "," -)
-    // scagaire "$t" {input.amr_res} -n card -s {output.summary} -o {output.report}
-    // if [ ! -f "{output.summary}" ]; then
-    //     echo "No species in database" > {output.summary}
-    //     echo "No Report" > {output.report}
-    // fi
-    // """
 }
