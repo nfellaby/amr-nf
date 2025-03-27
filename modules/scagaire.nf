@@ -23,7 +23,7 @@ process SCAGAIRE{
         -n card \
         -t abricate \
         ${species} \
-        ${abricate} \
+        ${abricate_out} \
         -s \${prefix}_scagaire_summary.tsv -o \${prefix}_scagaire_summary.tsv
     """
 }
