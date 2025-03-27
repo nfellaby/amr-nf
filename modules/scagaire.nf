@@ -10,18 +10,21 @@ process SCAGAIRE{
     input:
     tuple val(climb_id), path(kraken_assignments), path(kraken_report),  path(abricate_out), val(species)
 
-    output:
-    path "\$prefix_scagaire_summary.tsv"
+    // output:
+    // path "\$prefix_scagaire_summary.tsv"
 
 
     script:
     """
-    prefix=$(echo "${species}" | sed 's/ /_/g')
-    scagaire \
-        -n card \
-        -t abricate \
-        ${species} \
-        ${abricate} \
-        -s \$prefix_scagaire_summary.tsv -o \$prefix_scagaire_summary.tsv
+    echo ${species}
+
     """
 }
+
+    // prefix=\$(echo "${species}" | sed 's/ /_/g')
+    // scagaire \
+    //     -n card \
+    //     -t abricate \
+    //     ${species} \
+    //     ${abricate} \
+    //     -s \$prefix_scagaire_summary.tsv -o \$prefix_scagaire_summary.tsv
