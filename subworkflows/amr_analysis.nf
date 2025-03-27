@@ -39,7 +39,7 @@ workflow AMR_ANALYSIS {
     READ_ANALYSIS(amr_status.annotated)
     READ_ANALYSIS.out.view()
     // 4. Run Scagaire
-    species_list = params.species.split(',')
+    species_list = params.species?.split(',')
     species_ch = channel.fromList(species_list)
 
     // combine abricate_results with new channel
