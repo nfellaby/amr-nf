@@ -41,7 +41,7 @@ workflow AMR_ANALYSIS {
     // 4. Run Scagaire
     println params.species
     species_list = params.species?.split(',') as List
-    species_list.view()
+    println species_list
     // speices_list.view()
     // species_ch = channel.fromList(species_list)
 
