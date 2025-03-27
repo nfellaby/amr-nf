@@ -4,7 +4,7 @@ nextflow.enable.dsl=2
 
 process SCAGAIRE{
     tag "${climb_id}"
-    container 'community.wave.seqera.io/library/scagaire_pip_pkg-resources:89273e7b562d4859'
+    container 'community.wave.seqera.io/library/scagaire_pip_da-pkg-resources:458094263daede92'
     publishDir "${params.outdir}/scagaire", mode: 'copy'
 
     input:
