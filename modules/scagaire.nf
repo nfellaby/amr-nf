@@ -2,8 +2,6 @@
 
 nextflow.enable.dsl=2
 
-param.species="Enterobacter cloacae","Escherichia coli","Haemophilus influenzae","Klebsiella oxytoca","Klebsiella pneumoniae","Moraxella catarrhalis","Pseudomonas aeruginosa","Serratia marcescens","Staphylococcus aureus","Streptococcus pneumoniae","Streptococcus pyogenes"
-
 process SCAGAIRE{
     tag "${climb_id}"
     // container 'community.wave.seqera.io/library/scagaire:0.0.4--d340715dde589279'
