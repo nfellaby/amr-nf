@@ -5,7 +5,7 @@ nextflow.enable.dsl=2
 process SCAGAIRE{
     tag "${climb_id}"
     container 'community.wave.seqera.io/library/scagaire_pip_da-pkg-resources:458094263daede92'
-    publishDir "${params.outdir}/scagaire", mode: 'copy'
+    // publishDir "${params.outdir}/scagaire", mode: 'copy'
 
     input:
     tuple val(climb_id), path(kraken_assignments), path(kraken_report),  path(abricate_out), val(species)
@@ -19,12 +19,7 @@ process SCAGAIRE{
     echo ${species}
     prefix=\$(echo "${species}" | sed 's/ /_/g')
    
-    scagaire \
-        -n card \
-        -t abricate \
-        ${species} \
-        ${abricate_out} \
-        -s \${prefix}_scagaire_summary.tsv -o \${prefix}_scagaire_summary.tsv
+    
     """
 }
 
@@ -33,5 +28,5 @@ process SCAGAIRE{
     //     -n card \
     //     -t abricate \
     //     ${species} \
-    //     ${abricate} \
-    //     -s \$prefix_scagaire_summary.tsv -o \$prefix_scagaire_summary.tsv
+    //     ${abricate_out} \
+    //     -s \${prefix}_scagaire_summary.tsv -o \${prefix}_scagaire_summary.tsv
