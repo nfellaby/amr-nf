@@ -43,7 +43,7 @@ workflow AMR_ANALYSIS {
     species_ch = channel.fromList(species_list)
 
     // combine abricate_results with new channel
-    log.info "${species_list}"
+    species_ch.flatten().view()
 
     // call scagaire process, input would be value from string
     // SCAGAIRE(ABRICATE.out, species_ch)
