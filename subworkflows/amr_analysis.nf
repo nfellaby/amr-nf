@@ -39,7 +39,7 @@ workflow AMR_ANALYSIS {
     READ_ANALYSIS(amr_status.annotated)
     READ_ANALYSIS.out.view()
     // 4. Run Scagaire
-    params.species.view()
+    println params.species
     // species_list = params.species.split(',')
     // speices_list.view()
     // species_ch = channel.fromList(species_list)
