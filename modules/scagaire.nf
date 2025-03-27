@@ -18,11 +18,17 @@ process SCAGAIRE{
     """
     echo ${species}
     prefix=\$(echo "${species}" | sed 's/ /_/g')
-    echo \${prefix}
+   
+    scagaire \
+        -n card \
+        -t abricate \
+        ${species} \
+        ${abricate} \
+        -s \${prefix}_scagaire_summary.tsv -o \${prefix}_scagaire_summary.tsv
     """
 }
 
-    // 
+    
     // scagaire \
     //     -n card \
     //     -t abricate \
