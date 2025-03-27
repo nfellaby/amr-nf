@@ -18,7 +18,7 @@ If running on Bryn this repo needs to be cloned to `~/shared-team/` otherwise co
 
 ## Get FASTQs
 To get fastqs via S3:   
-`s3cmd get s3://mscape-published-read-fractions/<climbid>/<climbid>.human_filtered.fastq.gz`
+`s3cmd get s3://mscape-published-read-fractions/<CLIMB_ID>/<CLIMB_ID>.human_filtered.fastq.gz`
 
 ## Abricate
 Install Abricate:  
