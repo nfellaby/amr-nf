@@ -42,12 +42,11 @@ workflow AMR_ANALYSIS {
     println params.species
     species_list = params.species?.split(',') as List
     println species_list
-    // speices_list.view()
-    // species_ch = channel.fromList(species_list)
+    species_ch = channel.fromList(species_list)
 
     // combine abricate_results with new channel
 
     // call scagaire process, input would be value from string
-    // SCAGAIRE(ABRICATE.out, species_ch)
+    SCAGAIRE(ABRICATE.out, species_ch)
     // SCAGAIRE(ABRICATE.out.abricate)
 }
