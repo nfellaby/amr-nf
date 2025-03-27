@@ -38,14 +38,11 @@ workflow AMR_ANALYSIS {
     // 3. Extract species IDs for each READ assigned AMR
     READ_ANALYSIS(amr_status.annotated)
     READ_ANALYSIS.out.view()
-    // 4. Run Scagaire
-    println params.species
+    // 4. Create a list of Bacterial Species for Scagaire
     species_list = params.species?.split(',') as List
-    println species_list
     species_ch = channel.fromList(species_list)
 
-    // combine abricate_results with new channel
-    // call scagaire process, input would be value from string
+    // 5. Run SCAGAIRE
+    // combine channel generated from AMR status, run with each species
     SCAGAIRE(amr_status.annotated.combine(species_ch))
-    // SCAGAIRE(ABRICATE.out.abricate)
 }
