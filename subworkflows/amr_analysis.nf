@@ -45,8 +45,8 @@ workflow AMR_ANALYSIS {
     species_ch = channel.fromList(species_list)
 
     // combine abricate_results with new channel
-
+    combined_ch = Channel.of(amr_status.annotated, species_ch)
     // call scagaire process, input would be value from string
-    SCAGAIRE(amr_status.annotated, species_ch)
+    SCAGAIRE(combined_ch)
     // SCAGAIRE(ABRICATE.out.abricate)
 }
