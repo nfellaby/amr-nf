@@ -17,11 +17,12 @@ process SCAGAIRE{
     script:
     """
     echo ${species}
-
+    prefix=\$(echo "${species}" | sed 's/ /_/g')
+    echo \${prefix}
     """
 }
 
-    // prefix=\$(echo "${species}" | sed 's/ /_/g')
+    // 
     // scagaire \
     //     -n card \
     //     -t abricate \
