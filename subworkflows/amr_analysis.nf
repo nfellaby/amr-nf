@@ -40,10 +40,10 @@ workflow AMR_ANALYSIS {
     READ_ANALYSIS.out.view()
     // 4. Run Scagaire
     species_list = params.species?.split(',')
+    speices_list.view()
     species_ch = channel.fromList(species_list)
 
     // combine abricate_results with new channel
-    species_ch.flatten().view()
 
     // call scagaire process, input would be value from string
     // SCAGAIRE(ABRICATE.out, species_ch)
