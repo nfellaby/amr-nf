@@ -76,10 +76,11 @@ def link_abricate_results(df_merged: pd.DataFrame, abricate_csv: Path):
     :return: combined dataframe
     '''
         # Load TSV file into a DataFrame
-    abricate_df = pd.read_csv(abricate_csv,
-                         sep="\t",
-                         header=True)
-    abricate_merge_df = abricate_df.merge(df_merged, how='left', left_on='SEQUENCE', right_on='read_id')
+    abricate_df = pd.read_csv(abricate_csv, sep="\t")
+    abricate_merge_df = abricate_df.merge(df_merged, 
+                                          how='left', 
+                                          left_on='SEQUENCE', 
+                                          right_on='read_id')
     return abricate_merge_df
     
 
