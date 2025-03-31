@@ -23,6 +23,11 @@ def commandline():
         required=True,
         help="Input JSON file (with taxid and name).")
     parser.add_argument(
+        "-a",
+        "--abricate",
+        required=True,
+        help="Input Abricate results file.")
+    parser.add_argument(
         "-o",
         "--output",
         required=True,
@@ -62,6 +67,15 @@ def add_species(df_tsv: pd.DataFrame, taxid_dict: dict):
     df_merged  = df_tsv.merge(taxid_df[['taxid','name','raw_rank','rank']],
                               on='taxid', how='left')
     return df_merged
+
+def link_abricate_results(df_merged: pd.DataFrame, abricate_csv: Path):
+    '''
+    Read in abricate results, and left join the species annotations to abricate results
+    :params:    pandas dataframe containing read id and kraken annotations
+                abricate results file path
+    :return: combined dataframe
+    '''
+    pass
 
 def write_tsv(df_merged: pd.DataFrame, output_fn: Path):
     '''
