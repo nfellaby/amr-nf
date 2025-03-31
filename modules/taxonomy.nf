@@ -25,8 +25,8 @@ process READ_ANALYSIS{
     retrieve_taxon.py \
         -t read_taxid_assignment.tsv \
         -j ${kraken_report} \
-        -o reads_kraken_info.tsv
-
+        -a ${abricate_out} \
+        -o abricate_taxa_out.tsv
     """
 }
 
