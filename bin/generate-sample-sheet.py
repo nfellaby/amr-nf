@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import os
 from onyx import OnyxConfig, OnyxEnv, OnyxClient
 import argparse
