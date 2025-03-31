@@ -23,6 +23,11 @@ def commandline():
         required=True,
         help="Input JSON file (with taxid and name).")
     parser.add_argument(
+        "-a",
+        "--abricate",
+        required=True,
+        help="Input Abricate results file.")
+    parser.add_argument(
         "-o",
         "--output",
         required=True,
@@ -63,6 +68,22 @@ def add_species(df_tsv: pd.DataFrame, taxid_dict: dict):
                               on='taxid', how='left')
     return df_merged
 
+def link_abricate_results(df_merged: pd.DataFrame, abricate_csv: Path):
+    '''
+    Read in abricate results, and left join the species annotations to abricate results
+    :params:    pandas dataframe containing read id and kraken annotations
+                abricate results file path
+    :return: combined dataframe
+    '''
+        # Load TSV file into a DataFrame
+    abricate_df = pd.read_csv(abricate_csv, sep="\t")
+    abricate_merge_df = abricate_df.merge(df_merged, 
+                                          how='left', 
+                                          left_on='SEQUENCE', 
+                                          right_on='read_id')
+    return abricate_merge_df
+    
+
 def write_tsv(df_merged: pd.DataFrame, output_fn: Path):
     '''
     Write pandas dataframe to tsv
@@ -74,7 +95,8 @@ def main():
     args = commandline()
     df_tsv, taxid_dict = load_files(args.tsv, args.json)
     df_merged = add_species(df_tsv, taxid_dict)
-    write_tsv(df_merged, args.output)
+    abricate_merge_df = link_abricate_results(df_merged, args.abricate)
+    write_tsv(abricate_merge_df, args.output)
 
 if __name__ == "__main__":
     main()
