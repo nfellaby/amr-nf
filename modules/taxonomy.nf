@@ -29,9 +29,3 @@ process READ_ANALYSIS{
         -o ${climb_id}_abricate_taxa_out.tsv
     """
 }
-
-// retrieve_taxon.py -t read_taxid_assignment.tsv -j ${kraken_report} -o reads_kraken_info.tsv
-
-// , path("reads_kraken_info.tsv")
-
-// retrieve_taxon.py -t read_taxid_assignment.tsv -j ${kraken_report} -o reads_kraken_info.tsv
