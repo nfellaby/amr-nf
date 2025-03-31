@@ -1,5 +1,19 @@
 # Development Notes
 
+## To Do
+- [x] Create environment
+- [X] Create repo structure
+- [X] Set up formatting and linting (Ruff)
+- [X] set up Nextflow config files
+- [X] Install depedencies (Abricate, scagaire)
+- [X] Develop script to create sample-sheet
+- [X] NextFlow: Take CLIMB-ID list, pull FASTQ URIs from database (stored as text strings)
+- [X] Nextflow: Run Abricate 
+- [ ] Nextflow: Run Scagaire 
+- [X] Nextflow: Set up for multiple input samples
+- [ ] Nextflow: Set up for multiple species (Scagaire)
+
+
 ## Creat Env
 Create an environment for testing
 - With micromamba
