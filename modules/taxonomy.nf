@@ -22,6 +22,11 @@ process READ_ANALYSIS{
         cut -f 2-3 >>read_taxid_assignment.tsv; \
     done< unique_amr_reads.txt
     
+    retrieve_taxon.py \
+        -t read_taxid_assignment.tsv \
+        -j ${kraken_report} \
+        -o reads_kraken_info.tsv
+
     """
 }
 
