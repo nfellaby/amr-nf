@@ -26,7 +26,7 @@ process READ_ANALYSIS{
         -t read_taxid_assignment.tsv \
         -j ${kraken_report} \
         -a ${abricate_out} \
-        -o abricate_taxa_out.tsv
+        -o ${climb_id}_abricate_taxa_out.tsv
     """
 }
 
